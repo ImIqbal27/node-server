@@ -18,6 +18,10 @@ async function run() {
   try {
     const usersCollection = client.db("nodeMongoCRUD").collection("users");
 
+    app.get("/", (req, res) => {
+      res.send("node server running...");
+    });
+
     app.get("/users", async (req, res) => {
       const query = {};
       const cursor = usersCollection.find(query);
@@ -74,9 +78,9 @@ async function run() {
 await run().catch(console.dir);
 
 // run().catch((err) => console.log(err));
-app.get("/", (req, res) => {
-  res.send("node server running...");
-});
+// app.get("/", (req, res) => {
+//   res.send("node server running...");
+// });
 app.listen(port, () => {
   console.log(`Listening to port ${port}`);
 });
