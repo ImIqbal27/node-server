@@ -71,7 +71,7 @@ async function run() {
   }
 }
 
-run().catch(console.dir);
+await run().catch(console.dir);
 
 // run().catch((err) => console.log(err));
 app.get("/", (req, res) => {
